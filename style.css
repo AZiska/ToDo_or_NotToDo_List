@@ -61,7 +61,7 @@ h2 {
     margin: 0px 60px;
 }
 
-#toDoList {
+.toDoList {
     width: 300px;
     text-align: left;
     padding-left: 85px;

@@ -4,32 +4,45 @@ const inputField = document.getElementById('inputField');
 
 
 submitButton1.onclick = () => {
-    submitNewTask()
+    submitNewTask('button1')
 }
 
-inputField.onkeydown = (e) => {
-    console.log(e)
-    if (e.keyCode === 13) {
-        submitNewTask()
-    }
-};
-
-const submitNewTask = () => {
-    const newTask = inputField.value;
-    addTaskToList(newTask);
-    resetInputField(newTask);
+submitButton2.onclick = () => {
+    submitNewTask('button2')
 }
 
-const addTaskToList = (task) => {
-    if (task !== '') {
+// inputField.onkeydown = (e) => {
+//     console.log(e)
+//     if (e.keyCode === 13) {
+//         submitNewTask(button1)
+//     }
+// };
+
+const submitNewTask = (button) => {
+    const newToDo = inputField.value;
+    if(button === 'button1'){
+    addTaskToList(newToDo, 'button1');
+    resetInputField(newToDo, 'button1');
+    } else if (button === 'button2'){
+        addTaskToList(newToDo, 'button2');
+        resetInputField(newToDo, 'button2');
+        } 
+}
+
+const addTaskToList = (newTask, button) => {
+    if (newTask !== '' && button === 'button1') {
         let listItem = document.createElement('li');
-        listItem.innerHTML = task;
+        listItem.innerHTML = newTask;
         document.getElementById('toDoList').appendChild(listItem);
+    } else if (newTask !== '' && button === 'button2') {
+        let listItem = document.createElement('li');
+        listItem.innerHTML = newTask;
+        document.getElementById('notToDoList').appendChild(listItem);
     }
 }
 
-const resetInputField = (task) => {
-    if (task !== '') {
+const resetInputField = (newTask) => {
+    if (newTask !== '') {
         inputField.value = ''
         inputField.placeholder = 'Enter another task here...'
     }
