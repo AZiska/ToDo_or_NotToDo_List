@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title id="tabTitle">To do or not to do List</title>
+</head>
+
+<body>
+    <header>
+        <h1>To do or not to do List</h1>
+    </header>
+
+    <section id="inputContainer">
+        <input id="inputField" class="inputField" type='text' placeholder="Enter a new task here...">
+        <div id=buttonContainer>
+            <input id="submitButton1" class="submitButton" type="submit" value="Add to TO DO list">
+            <input id="submitButton2" class="submitButton" type="submit" value="Add to NOT TO DO list">
+        </div>
+    </section>
+
+    <section id="listContainer">
+        <div id="toDoListContainer" class="toDoListContainer ">
+            <h2>Personal TO DO list</h2>
+            <ul id='toDoList'>
+                <li>Read a good book</li>
+            </ul>
+        </div>
+
+        <div id="notToDoListContainer" class="toDoListContainer">
+            <h2>Personal NOT TO DO list</h2>
+            <ul id='toDoList'>
+                <li>Read a boring book</li>
+            </ul>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="./script.js">
+    </script>
+</body>
