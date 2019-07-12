@@ -21,23 +21,29 @@
     <section id="inputContainer">
         <input id="inputField" class="inputField" type='text' placeholder="Enter a new task here...">
         <div id=buttonContainer>
-            <input id="submitButton1" class="submitButton" type="submit" value="Add to TO DO list">
-            <input id="submitButton2" class="submitButton" type="submit" value="Add to NOT TO DO list">
+            <input id="toDoButton" class="submitButton" type="submit" value="Add to TO DO list">
+            <input id="notToDoButton" class="submitButton" type="submit" value="Add to NOT TO DO list">
         </div>
     </section>
 
     <section id="listContainer">
         <div id="toDoListContainer" class="toDoListContainer ">
-            <h2>Personal TO DO list</h2>
+            <h2>Personal TO DO list :</h2>
             <ul id='toDoList' class='toDoList'>
-                <li>Read a good book</li>
+                <li>
+                    <button class="deleteButton" onclick='removeTaskFromList(this)'>X</button>
+                    <p class="listItem">Read a good book</p>
+                </li>
             </ul>
         </div>
 
         <div id="notToDoListContainer" class="toDoListContainer">
-            <h2>Personal NOT TO DO list</h2>
+            <h2>Personal NOT TO DO list :</h2>
             <ul id='notToDoList' class='toDoList'>
-                <li>Read a boring book</li>
+                <li>
+                    <button class="deleteButton" onclick='removeTaskFromList(this)'>X</button>
+                    <p class="listItem">Read a boring book</p>
+                </li>
             </ul>
         </div>
     </section>

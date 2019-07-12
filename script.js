@@ -1,45 +1,48 @@
-const submitButton1 = document.getElementById('submitButton1');
-const submitButton2 = document.getElementById('submitButton2');
+const toDoButton = document.getElementById('toDoButton');
+const notToDoButton = document.getElementById('notToDoButton');
+const deleteButton = document.getElementById('deleteButton');
 const inputField = document.getElementById('inputField');
 
 
-submitButton1.onclick = () => {
-    submitNewTask('button1')
+toDoButton.onclick = () => {
+    addTaskToList('toDoButton')
 }
 
-submitButton2.onclick = () => {
-    submitNewTask('button2')
+notToDoButton.onclick = () => {
+    addTaskToList('notToDoButton')
 }
 
-// inputField.onkeydown = (e) => {
-//     console.log(e)
-//     if (e.keyCode === 13) {
-//         submitNewTask(button1)
-//     }
-// };
+const removeTaskFromList = (e) => {
+    e.parentNode.remove();
+}
 
-const submitNewTask = (button) => {
+const addTaskToList = (button) => {
     const newToDo = inputField.value;
-    if(button === 'button1'){
-    addTaskToList(newToDo, 'button1');
-    resetInputField(newToDo, 'button1');
-    } else if (button === 'button2'){
-        addTaskToList(newToDo, 'button2');
-        resetInputField(newToDo, 'button2');
-        } 
+    if (button === 'toDoButton') {
+        createListItem(newToDo, 'toDoButton');
+        resetInputField(newToDo, 'toDoButton');
+    } else if (button === 'notToDoButton') {
+        createListItem(newToDo, 'notToDoButton');
+        resetInputField(newToDo, 'notToDoButton');
+    }
 }
 
-const addTaskToList = (newTask, button) => {
-    if (newTask !== '' && button === 'button1') {
+const createListItem = (newTask, button) => {
+    // Frank: je controleert drie keer of de newTask leeg is
+    // het kan ook 1 keer gechecked worden
+    if (newTask !== '' && button === 'toDoButton') {
         let listItem = document.createElement('li');
-        listItem.innerHTML = newTask;
+        listItem.innerHTML = `<button class="deleteButton" onclick='removeTaskFromList(this)'>X</button>
+        <p class="listItem">${newTask}</p>`;
         document.getElementById('toDoList').appendChild(listItem);
-    } else if (newTask !== '' && button === 'button2') {
+    } else if (newTask !== '' && button === 'notToDoButton') {
         let listItem = document.createElement('li');
-        listItem.innerHTML = newTask;
+        listItem.innerHTML = `<button class="deleteButton" onclick='removeTaskFromList(this)'>X</button>
+        <p class="listItem">${newTask}</p>`;
         document.getElementById('notToDoList').appendChild(listItem);
     }
 }
+
 
 const resetInputField = (newTask) => {
     if (newTask !== '') {

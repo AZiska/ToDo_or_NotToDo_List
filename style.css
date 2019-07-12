@@ -19,7 +19,7 @@ h2 {
     font-size: 35px;
     padding-left: 50px;
     padding-top: 20px;
-    margin-bottom: 0;
+    margin-bottom: 15px;
 }
 
 #inputContainer {
@@ -30,7 +30,7 @@ h2 {
     height: 40px;
     width: 500px;
     font-family: 'Open Sans Condensed', sans-serif;
-    color: #122323;
+    color: #142b1f;
     font-size: 25px;
     background-color: #fafbf5;
     border-radius: 3px;
@@ -40,11 +40,12 @@ h2 {
 .submitButton {
     height: 30px;
     font-family: 'Open Sans Condensed', sans-serif;
-    color: #122323;
+    color: #142b1f;
     font-size: 20px;
     background-color: #fafbf5;
     border-radius: 4px;
     margin: 0px 15px;
+    cursor: pointer;
 }
 
 #listContainer {
@@ -59,14 +60,36 @@ h2 {
     border-radius: 6px;
     width: 400px;
     margin: 0px 60px;
+    padding-bottom: 20px;
 }
 
 .toDoList {
     width: 300px;
-    text-align: left;
-    padding-left: 85px;
     padding-bottom: 20px;
-    justify-content: center;
+    margin: 0 10px;
+    flex-direction: column;
+    display: flex;
+}
+
+li {
+    display: inline-flex;
+    align-items: center
+}
+
+li .listItem {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 22px;
+    font-size: 24px;
+    color: #142b1f;
+    margin: 5px 10px;
+}
+
+li .deleteButton {
+    background-color: #274f3a;
+    color: #fbfbf5;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    margin-left: 10px;
+    border-radius: 8px;
+    height: 24px;
+    cursor: pointer;
 }
