@@ -26,33 +26,43 @@ notToDoButton.onclick = () => {
 
 const renderTasks = (taskArray) => {
     let htmlList;
-    let startIndex;
     if (taskArray === tasks.toDo) {
         htmlList = document.getElementById('toDoList')
-        startIndex = tasks.toDo.length - 1 ;
     } else if (taskArray === tasks.notToDo) {
         htmlList = document.getElementById('notToDoList')
-        startIndex = tasks.notToDo.length - 1 ;
     } else {
         console.error('Unknown task type:', taskArray);
     };
 
-    for (let i = startIndex; i < taskArray.length; i++) {
-        let listItem = document.createElement('li');
-        listItem.innerHTML = `<button class="deleteButton" onclick='removeTaskFromList(this)'>X</button>
-            <p class="listItem">${taskArray[i]}</p>`;
+    htmlList.innerHTML = ''
+    for (let i = 0; i < taskArray.length; i++) {
+        const listItem = document.createElement('li');
         htmlList.appendChild(listItem);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'deleteButton';
+        deleteButton.innerText = 'X';
+        deleteButton.onclick = () => {
+            removeTaskFromList(taskArray, i);
+            renderTasks(taskArray);
+        }
+        listItem.appendChild(deleteButton);
+
+        const itemText = document.createElement('p');
+        itemText.className = 'listItem';
+        itemText.innerText = taskArray[i];
+        listItem.appendChild(itemText);
+
     };
     resetInputField()
 }
 
 const resetInputField = () => {
     inputField.value = '';
-    // inputField.placeholder = 'Enter another task here...';
 }
 
-const removeTaskFromList = (e) => {
-    e.parentNode.remove();
+const removeTaskFromList = (taskArray, index) => {
+    taskArray.splice(index, 1);
 }
 
 
